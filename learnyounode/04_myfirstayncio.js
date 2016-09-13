@@ -1,11 +1,9 @@
-var fs = require('fs');
-var filePath = process.argv[2];
+const fs = require('fs');
 
-fs.readFile(filePath, function(err, data) {
-  if (!err) {
-    var fileOuput = data.toString();
-    var fileOutputArray = fileOuput.split('\n');
-    var lengthOfFileOutputArray = fileOutputArray.length - 1;
-    console.log(lengthOfFileOutputArray);
-  }
+// read file
+fs.readFile(process.argv[2], function(err, data) {
+  // convert buffer to string
+  const fileOuput = data.toString();
+  // count new lines
+  console.log(fileOuput.split('\n').length - 1);
 });

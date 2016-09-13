@@ -1,21 +1,18 @@
-// gets the fs modules from the node core library
-var fs = require('fs');
+const fs = require('fs');
+const path = require('path');
 
-// console.log(process.argv);
+const extension = '.' + process.argv[3];
 
-// assigning the third command line argument to a variable
-var fileDirectoryPath = process.argv[2];
-
-fs.readdir(fileDirectoryPath, function(error, data) {
-  if (!error) {
-    var fileNameArray = data;
-    for (file of fileNameArray) {
-      var extension = file.split('.')[1];
-      if (extension === process.argv[3]) {
-        console.log(file);
+// read directory
+fs.readdir(process.argv[2], function(err, list) {
+  if (!err) {
+    // loop through file names
+    list.forEach(function(fileName){
+      // check to see if the extensions are equal
+      if (path.extname(fileName) === extension) {
+        // if equal, output the entire filename
+        console.log(fileName);
       }
-    }
-  } else {
-    console.log(error);
+    });
   }
 });

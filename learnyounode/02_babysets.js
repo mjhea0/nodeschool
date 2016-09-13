@@ -1,9 +1,7 @@
-var total = 0;
-var numbers = process.argv;
+let total = 0;
+const numbers = process.argv;
 
-// console.log(numbers);
-
-for (var i = 2; i < numbers.length; i++) {
+for (let i = 2; i < numbers.length; i++) {
   total += parseInt(numbers[i]);
 }
 
