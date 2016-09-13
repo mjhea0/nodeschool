@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // read file
-fs.readFile(process.argv[2], function(err, data) {
+fs.readFile(process.argv[2], (err, data) => {
   // convert buffer to string
   const fileOuput = data.toString();
   // count new lines
